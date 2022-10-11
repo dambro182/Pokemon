@@ -1,22 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DigiPoke</title>
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
   </head>
   <body>
-    <header>
-      <ul>
-        <li>Inicio</li>
-        <li>Digimons</li>
-      </ul>
-    </header>
-    <main>
-      <div class="FondoGame"></div>
-    </main>
+    <div class="select-screen">
+      <div class="header">
+        <div class="title-mini">Desarrollado Por:Dambrosio Tomas</div>
+        <div class="title">Choose a Pokemon</div>
+      </div>
+
+      <div class="main">
+        <div class="character charmander">
+          <div class="title">Charmander</div>
+          <div
+            style="
+              background: url(http://www.smogon.com/dex/media/sprites/xy/charmander.gif)
+                no-repeat center center;
+              -webkit-background-size: 100% 100%;
+              -moz-background-size: 100% 100%;
+              -o-background-size: 100% 100%;
+              background-size: 100% 100%;
+              height: 100px;
+              width: 100px;
+            "
+          ></div>
+        </div>
+
+        <div id="char" class="character bulbasaur">
+          <div class="title">Bulbasaur</div>
+          <div
+            style="
+              background: url(http://www.smogon.com/dex/media/sprites/xy/bulbasaur.gif)
+                no-repeat center center;
+              -webkit-background-size: 100% 100%;
+              -moz-background-size: 100% 100%;
+              -o-background-size: 100% 100%;
+              background-size: 100% 100%;
+              height: 100px;
+              width: 100px;
+            "
+          ></div>
+        </div>
+
+        <div class="character squirtle">
+          <div class="title">Squirtle</div>
+          <div
+            style="
+              background: url(http://www.smogon.com/dex/media/sprites/xy/squirtle.gif)
+                no-repeat center center;
+              -webkit-background-size: 100% 100%;
+              -moz-background-size: 100% 100%;
+              -o-background-size: 100% 100%;
+              background-size: 100% 100%;
+              height: 100px;
+              width: 100px;
+            "
+          ></div>
+        </div>
+      </div>
+      <div id="fight" class="buttondiv">
+        <button id="start">START GAME</button>
+      </div>
+    </div>
   </body>
   <script src="/main.js"></script>
 </html>
