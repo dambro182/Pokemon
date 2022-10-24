@@ -20,59 +20,42 @@ let opcion1 = pokemon1;
 let opcion2 = pokemon2;
 let opcion3 = pokemon3;
 
-let Pokesdisponibles = [];
-Pokesdisponibles.push("Charmander", "Squirtle", "Bulbasaur");
+//Almacenamiento De  Pokemones Seleccionados
+let Pokeselect = undefined;
+let enemySelect = undefined;
 
-console.log(Pokesdisponibles);
-console.log("Los Pokes Disponibles Son " + Pokesdisponibles.length);
+//pokemon aliados
+const PokeSelect1 = document.getElementsByClassName("charmander")[0];
+PokeSelect1.addEventListener("click", () => {
+  Pokeselect = pokemon1;
+});
+const PokeSelect2 = document.getElementsByClassName("bulbasaur")[0];
+PokeSelect2.addEventListener("click", () => {
+  Pokeselect = pokemon2;
+});
+const PokeSelect3 = document.getElementsByClassName("squirtle")[0];
+PokeSelect3.addEventListener("click", () => {
+  Pokeselect = pokemon3;
+});
 
-let PokeSelect2 = prompt("Ingresa Un Pokemon");
-switch (PokeSelect2) {
-  case "charmander":
-    PokeSelect2 = opcion1;
-    console.log("Has Elegido a Charmander");
-    break;
-  case "squirtle":
-    PokeSelect2 = opcion3;
-    console.log("Has Elegido a Squirtle");
-    break;
-  case "bulbasaur":
-    PokeSelect2 = opcion2;
-    console.log("Has Elegido a Bulbasaur");
-    break;
-  default:
-    alert("Ingresa un Pokemon Valido");
-}
+//pokemon enemigos
+const enemySelect1 = document.getElementsByClassName("charmander1")[0];
+enemySelect1.addEventListener("click", () => {
+  enemySelect = pokemon1;
+});
+const enemySelect2 = document.getElementsByClassName("bulbasaur2")[0];
+enemySelect2.addEventListener("click", () => {
+  enemySelect = pokemon2;
+});
+const enemySelect3 = document.getElementsByClassName("squirtle3")[0];
+enemySelect3.addEventListener("click", () => {
+  enemySelect = pokemon3;
+});
 
-let enemySelect = prompt("Elije Un Pokemon Enemigo");
-switch (enemySelect) {
-  case "charmander":
-    enemySelect = opcion1;
-    console.log("Has Elegido a Charmander");
-    break;
-  case "squirtle":
-    enemySelect = opcion3;
-    console.log("Has Elegido a Squirtle");
-    break;
-  case "bulbasaur":
-    enemySelect = opcion2;
-    console.log("Has Elegido a Bulbasaur");
-    break;
-  default:
-    alert("Ingresa un Pokemon Valido");
-}
+//boton Start Game
+const Boton = document.getElementById("start");
 
-if (PokeSelect2 === enemySelect) alert("No Puedes Combatir Pokemones Iguales");
-if (PokeSelect2 === opcion3 && enemySelect === opcion1) {
-  combateSquirtle2();
-}
-if (PokeSelect2 === opcion1 && enemySelect === opcion2) {
-  combate();
-}
-if (PokeSelect2 === opcion3 && enemySelect === opcion2) {
-  combateSquirtle1();
-}
-
+//COMBATES
 function combate() {
   let round = 0;
   while (opcion1.Vida > 0 && opcion2.Vida > 0) {
@@ -94,8 +77,8 @@ function combate() {
   }
 }
 
+//SQUIRTLE VS BULBASAUR
 function combateSquirtle1() {
-  //SQUIRTLE VS BULBASAUR
   let round = 0;
   while (opcion3.Vida > 0 && opcion2.Vida > 0) {
     let GolpePokemon1 = Math.ceil(Math.random() * pokemon3.Daño);
@@ -115,9 +98,8 @@ function combateSquirtle1() {
     }
   }
 }
-
+//SQUIRTLE VS CHARMANDER
 function combateSquirtle2() {
-  //SQUIRTLE VS CHARMANDER
   let round = 0;
   while (opcion3.Vida > 0 && opcion1.Vida > 0) {
     let GolpePokemon1 = Math.ceil(Math.random() * opcion3.Daño);
@@ -136,4 +118,11 @@ function combateSquirtle2() {
       console.log(opcion3.Nombre + " Vida = " + opcion3.Vida);
     }
   }
+}
+
+if (Pokeselect == pokemon1 && enemySelect == pokemon2) {
+  Boton.addEventListener("click", combate);
+}
+if (Pokeselect == pokemon3 && enemySelect == pokemon2) {
+  Boton.addEventListener("click", combateSquirtle1);
 }
