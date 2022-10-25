@@ -8,13 +8,13 @@ const pokemon2 = {
   Nombre: "Bulbasaur",
   Vida: 120,
   Tipo: "Planta",
-  Daño: 30,
+  Daño: 26,
 };
 const pokemon3 = {
   Nombre: "Squirtle",
-  Vida: 110,
+  Vida: 100,
   Tipo: "Agua",
-  Daño: 30,
+  Daño: 28,
 };
 let opcion1 = pokemon1;
 let opcion2 = pokemon2;
@@ -58,71 +58,51 @@ const Boton = document.getElementById("start");
 //COMBATES
 function combate() {
   let round = 0;
-  while (opcion1.Vida > 0 && opcion2.Vida > 0) {
+  while (Pokeselect.Vida > 0 && enemySelect.Vida > 0) {
     let GolpePokemon1 = Math.ceil(Math.random() * opcion1.Daño);
     let GolpePokemon2 = Math.ceil(Math.random() * opcion2.Daño);
     round = round + 1;
     console.log(round);
     if (GolpePokemon1 > GolpePokemon2) {
-      opcion2.Vida -= GolpePokemon1;
-      console.log(opcion1.Nombre + " " + "Hizo " + GolpePokemon1 + " Daño");
-      console.log(opcion1.Nombre + " Vida = " + opcion1.Vida);
-      console.log(opcion2.Nombre + " Vida = " + opcion2.Vida);
+      enemySelect.Vida -= GolpePokemon1;
+      document.write(
+        Pokeselect.Nombre + " " + "Hizo " + GolpePokemon1 + " Daño"
+      );
+      document.write(Pokeselect.Nombre + " Vida = " + Pokeselect.Vida);
+      document.write(enemySelect.Nombre + " Vida = " + enemySelect.Vida);
     } else {
-      pokemon1.Vida -= pokemon2.Daño;
-      console.log(opcion2.Nombre + " " + "Hizo " + GolpePokemon2 + " Daño");
-      console.log(opcion2.Nombre + " Vida = " + opcion2.Vida);
-      console.log(opcion1.Nombre + " Vida = " + opcion1.Vida);
+      Pokeselect.Vida -= enemySelect.Daño;
+      document.write(
+        enemySelect.Nombre + " " + "Hizo " + GolpePokemon2 + " Daño"
+      );
+      document.write(enemySelect.Nombre + " Vida = " + enemySelect.Vida);
+      document.write(Pokeselect.Nombre + " Vida = " + Pokeselect.Vida);
     }
   }
 }
 
-//SQUIRTLE VS BULBASAUR
-function combateSquirtle1() {
-  let round = 0;
-  while (opcion3.Vida > 0 && opcion2.Vida > 0) {
-    let GolpePokemon1 = Math.ceil(Math.random() * pokemon3.Daño);
-    let GolpePokemon2 = Math.ceil(Math.random() * pokemon2.Daño);
-    round = round + 1;
-    console.log(round);
-    if (GolpePokemon1 > GolpePokemon2) {
-      opcion2.Vida -= GolpePokemon1;
-      console.log(opcion3.Nombre + " " + "Hizo " + GolpePokemon1 + " Daño");
-      console.log(opcion3.Nombre + " Vida = " + opcion3.Vida);
-      console.log(opcion2.Nombre + " Vida = " + opcion2.Vida);
-    } else {
-      opcion3.Vida -= opcion2.Daño;
-      console.log(opcion2.Nombre + " " + "Hizo " + GolpePokemon2 + " Daño");
-      console.log(opcion2.Nombre + " Vida = " + opcion2.Vida);
-      console.log(opcion3.Nombre + " Vida = " + opcion3.Vida);
-    }
-  }
-}
-//SQUIRTLE VS CHARMANDER
-function combateSquirtle2() {
-  let round = 0;
-  while (opcion3.Vida > 0 && opcion1.Vida > 0) {
-    let GolpePokemon1 = Math.ceil(Math.random() * opcion3.Daño);
-    let GolpePokemon2 = Math.ceil(Math.random() * opcion1.Daño);
-    round = round + 1;
-    console.log(round);
-    if (GolpePokemon1 > GolpePokemon2) {
-      opcion2.Vida -= GolpePokemon1;
-      console.log(opcion3.Nombre + " " + "Hizo " + GolpePokemon1 + " Daño");
-      console.log(opcion3.Nombre + " Vida = " + opcion1.Vida);
-      console.log(opcion1.Nombre + " Vida = " + opcion1.Vida);
-    } else {
-      pokemon3.Vida -= pokemon1.Daño;
-      console.log(opcion1.Nombre + " " + "Hizo " + GolpePokemon2 + " Daño");
-      console.log(opcion1.Nombre + " Vida = " + opcion1.Vida);
-      console.log(opcion3.Nombre + " Vida = " + opcion3.Vida);
-    }
-  }
-}
+Boton.addEventListener("click", combate);
 
-if (Pokeselect == pokemon1 && enemySelect == pokemon2) {
-  Boton.addEventListener("click", combate);
-}
-if (Pokeselect == pokemon3 && enemySelect == pokemon2) {
-  Boton.addEventListener("click", combateSquirtle1);
+//modo oscuro
+const btnSwitch = document.querySelector("#switch");
+
+btnSwitch.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  btnSwitch.classList.toggle("active");
+
+  // Guardamos el modo en localstorage.
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("dark-mode", "true");
+  } else {
+    localStorage.setItem("dark-mode", "false");
+  }
+});
+
+// Obtenemos el modo actual.
+if (localStorage.getItem("dark-mode") === "true") {
+  document.body.classList.add("dark");
+  btnSwitch.classList.add("active");
+} else {
+  document.body.classList.remove("dark");
+  btnSwitch.classList.remove("active");
 }
