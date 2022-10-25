@@ -59,8 +59,8 @@ const Boton = document.getElementById("start");
 function combate() {
   let round = 0;
   while (Pokeselect.Vida > 0 && enemySelect.Vida > 0) {
-    let GolpePokemon1 = Math.ceil(Math.random() * opcion1.Daño);
-    let GolpePokemon2 = Math.ceil(Math.random() * opcion2.Daño);
+    let GolpePokemon1 = Math.ceil(Math.random() * Pokeselect.Daño);
+    let GolpePokemon2 = Math.ceil(Math.random() * enemySelect.Daño);
     round = round + 1;
     console.log(round);
     if (GolpePokemon1 > GolpePokemon2) {
