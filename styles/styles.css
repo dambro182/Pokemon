@@ -6,6 +6,10 @@
   font-family: "Pokemon";
   src: url("/assets/Fonts/Pokemon\ Solid.ttf");
 }
+@font-face {
+  font-family: "Pokemon2";
+  src: url("/assets/Fonts/andy-bold.ttf ");
+}
 body {
   background: #e1c05d;
   background: -moz-linear-gradient(
@@ -86,6 +90,72 @@ body {
   height: 80vh;
 }
 .select-screen .main .title {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.title1 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.title2 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.title3 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.title4 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.title5 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.title6 {
   position: absolute;
   top: 0;
   width: 100%;
@@ -228,4 +298,12 @@ body {
   display: block;
   background: none;
   color: #fff;
+}
+#final {
+  color: rgb(0, 0, 0);
+  margin: 10px;
+  font-size: xx-large;
+  font-family: "Pokemon2", "Arial Narrow", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
 }

@@ -1,0 +1,20 @@
+[
+  {
+    "Nombre": "Charmander",
+    "Vida": 90,
+    "Tipo": "Fuego",
+    "Daño": 30
+  },
+  {
+    "Nombre": "Bulbasaur",
+    "Vida": 120,
+    "Tipo": "Planta",
+    "Daño": 26
+  },
+  {
+    "Nombre": "Squirtle",
+    "Vida": 100,
+    "Tipo": "Agua",
+    "Daño": 28
+  }
+]
